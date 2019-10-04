@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Requests\Categories\CreateCategoryRequest;
+use App\Http\Requests\Categories\UpdateCategoriesRequest;
 
 class CategoriesController extends Controller
 {
@@ -15,7 +17,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $categories= Category::all();
-//        dd($category);
+//        dd($categories[0] -> name);
         return view('categories.index', compact('categories'));
     }
 
@@ -35,18 +37,14 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateCategoryRequest $request)
     {
-        $validateCreate = $request -> validate([
-            'name' => 'required|unique:categories'
-        ]) ;
-
         $categoryStore = $request -> all();
         $category = new Category();
         $category -> name = $categoryStore['name'];
         $category -> save();
 
-        session() -> flash('success', 'Category' . ' "' . $category -> name . '" ' . 'created successfully!');
+        session() -> flash('success', '"' . $category -> name . '" ' . 'created successfully!');
 
         return redirect() -> route('categories.index');
     }
@@ -65,34 +63,45 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Category $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category) // using model binding
     {
-        //
+        return view('categories.create', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param UpdateCategoriesRequest $request
+     * @param Category $category
+     * @return void
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCategoriesRequest $request, Category $category)
     {
-        //
+
+        $category -> name = $request -> name;
+
+        $category -> save();
+
+        session() -> flash('success', '"' . $category -> name . '" updated successfully!');
+
+        return redirect(route('categories.index'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Category $category
+     * @return void
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category -> delete();
+
+        session() -> flash('success', '"' . $category -> name . '" deleted successfully!');
+
+        return redirect(route('categories.index'));
     }
 }
