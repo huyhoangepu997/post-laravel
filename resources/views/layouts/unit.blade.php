@@ -9,7 +9,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -17,7 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @yield('css')
+{{--    <meta name="csrf-token" content="{{ csrf_token() }}" />--}}
 </head>
 <body>
     <div id="app">
@@ -81,23 +82,20 @@
                         </div>
                     @endif
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <ul class="list-group">
                                 <li class="list-group-item">
-                                    <a href="{{ route('posts.index') }}">Posts</a>
+                                    <a href="{{ route('units-type.index') }}">Units Type</a>
                                 </li>
                                 <li class="list-group-item">
-                                    <a href="{{ route('categories.index') }}">Categories</a>
+                                    <a href="{{ route('units.index') }}">Units</a>
                                 </li>
-                            </ul>
-
-                            <ul class="list-group mt-5">
                                 <li class="list-group-item">
-                                    <a href="{{ route('trashed-posts.index') }}">Trashed Posts</a>
+                                    <a href="{{ route('units-conversion.index') }}">Units Conversion</a>
                                 </li>
                             </ul>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-9">
                             @yield('content')
                         </div>
                     </div>
@@ -107,10 +105,38 @@
             @endauth
         </main>
     </div>
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
-    @yield('script')
 
+{{--    @yield('script')--}}
+{{--    <script--}}
+{{--        src="https://code.jquery.com/jquery-3.4.1.min.js"--}}
+{{--        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="--}}
+{{--        crossorigin="anonymous"></script>--}}
+{{--    <script>--}}
+{{--        $.ajaxSetup({--}}
+{{--            headers: {--}}
+{{--                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')--}}
+{{--            }--}}
+{{--        });--}}
+{{--        $(document).ready(function() {--}}
+{{--            $("#from_code").on('change', (function(e){--}}
+{{--                var from_code = $(this).val();--}}
+{{--                console.log(from_code);--}}
+
+{{--                $.ajax({--}}
+{{--                    type:'POST',--}}
+
+{{--                    url:'{{ route('ajax.from_code') }}',--}}
+
+{{--                    data:{code:from_code},--}}
+
+{{--                    success:function(data){--}}
+
+{{--                        $('#to_code').html(data);--}}
+{{--                    }--}}
+{{--                });--}}
+{{--            }));--}}
+{{--        });--}}
+{{--    </script>--}}
 </body>
 
 </html>

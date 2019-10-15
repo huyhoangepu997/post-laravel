@@ -10902,7 +10902,7 @@ function adjustCSS( elem, prop, valueParts, tween ) {
 		initial = currentValue(),
 		unit = valueParts && valueParts[ 3 ] || ( jQuery.cssNumber[ prop ] ? "" : "px" ),
 
-		// Starting value computation is required for potential unit mismatches
+		// Starting value computation is required for potential units mismatches
 		initialInUnit = elem.nodeType &&
 			( jQuery.cssNumber[ prop ] || unit !== "px" && +initial ) &&
 			rcssNum.exec( jQuery.css( elem, prop ) );
@@ -13025,7 +13025,7 @@ jQuery.extend( {
 				return;
 			}
 
-			// If a number was passed in, add the unit (except for certain CSS properties)
+			// If a number was passed in, add the units (except for certain CSS properties)
 			// The isCustomProp check can be removed in jQuery 4.0 when we only auto-append
 			// "px" to a few hardcoded values.
 			if ( type === "number" && !isCustomProp ) {
@@ -35188,7 +35188,7 @@ function isNumeric(n) {
 function setStyles(element, styles) {
   Object.keys(styles).forEach(function (prop) {
     var unit = '';
-    // add unit if the value is numeric and is one of the following
+    // add units if the value is numeric and is one of the following
     if (['width', 'height', 'top', 'right', 'bottom', 'left'].indexOf(prop) !== -1 && isNumeric(styles[prop])) {
       unit = 'px';
     }
@@ -35733,11 +35733,11 @@ function keepTogether(data) {
 }
 
 /**
- * Converts a string containing value + unit into a px value number
+ * Converts a string containing value + units into a px value number
  * @function
  * @memberof {modifiers~offset}
  * @private
- * @argument {String} str - Value + unit string
+ * @argument {String} str - Value + units string
  * @argument {String} measurement - `height` or `width`
  * @argument {Object} popperOffsets
  * @argument {Object} referenceOffsets
@@ -35745,7 +35745,7 @@ function keepTogether(data) {
  * Value in pixels, or original string if no values were extracted
  */
 function toValue(str, measurement, popperOffsets, referenceOffsets) {
-  // separate value from unit
+  // separate value from units
   var split = str.match(/((?:\-|\+)?\d*\.?\d*)(.*)/);
   var value = +split[1];
   var unit = split[2];
@@ -35779,8 +35779,8 @@ function toValue(str, measurement, popperOffsets, referenceOffsets) {
     }
     return size / 100 * value;
   } else {
-    // if is an explicit pixel unit, we get rid of the unit and keep the value
-    // if is an implicit unit, it's px, and we return just the value
+    // if is an explicit pixel units, we get rid of the units and keep the value
+    // if is an implicit units, it's px, and we return just the value
     return value;
   }
 }
@@ -36117,11 +36117,11 @@ var modifiers = {
    * The `offset` modifier can shift your popper on both its axis.
    *
    * It accepts the following units:
-   * - `px` or unit-less, interpreted as pixels
+   * - `px` or units-less, interpreted as pixels
    * - `%` or `%r`, percentage relative to the length of the reference element
    * - `%p`, percentage relative to the length of the popper element
-   * - `vw`, CSS viewport width unit
-   * - `vh`, CSS viewport height unit
+   * - `vw`, CSS viewport width units
+   * - `vh`, CSS viewport height units
    *
    * For length is intended the main axis relative to the placement of the popper.<br />
    * This means that if the placement is `top` or `bottom`, the length will be the
@@ -49447,7 +49447,7 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
   null,
   null,
   null
-  
+
 )
 
 /* hot reload */
@@ -49467,7 +49467,7 @@ component.options.__file = "resources/js/components/ExampleComponent.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ExampleComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 /***/ }),
 
